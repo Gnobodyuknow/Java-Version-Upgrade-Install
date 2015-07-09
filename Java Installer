@@ -1,0 +1,32 @@
+@echo off
+
+mode con:cols=60 lines=10
+
+taskkill /f /im iexplore.exe
+
+echo ***************************************
+echo ***************************************
+echo **                                   **
+echo **  Unistalling old version of Java  **
+echo **                                   **
+echo ***************************************
+echo ***************************************
+
+# between the { } enter the key string for the old version of Java and 
+# this will uninstall it first before installing the new
+
+start /w msiexec.exe /x { } /QN /norestart
+
+cls
+
+echo ***************************************
+echo ***************************************
+echo **                                   **
+echo **   Istalling new version of Java   **
+echo **                                   **
+echo ***************************************
+echo ***************************************
+
+# After the \\ enter the folder path where the .msi file is located for the new version
+
+start /w msiexec /i \\ AUTO_UPDATE=0 EULA=0 NOSTARTMENU=0 SPONSERS=0 WEB_ANALYTICS=0 WEB_JAVA=1 WEB_JAVA_SECURITY_LEVEL=H /QN
